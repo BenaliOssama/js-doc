@@ -1,7 +1,3 @@
-Here’s a concise "book" on the Date object in JavaScript, covering key concepts, methods, and practical examples.
-
----
-
 ### **Working with Dates and Times in JavaScript**
 
 ---
