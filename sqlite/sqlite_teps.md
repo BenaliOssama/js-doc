@@ -84,6 +84,7 @@ func writeToDB(db *sql.DB, data string) {
 		log.Fatal(err)
 	}
 }
+```
 # Using Transactions to Ensure Consistency
 
 Transactions allow you to group multiple operations together to ensure atomicity, consistency, isolation, and durability (ACID properties). This ensures that either all operations in the transaction succeed, or none of them do (in case of an error).
@@ -93,15 +94,6 @@ Transactions allow you to group multiple operations together to ensure atomicity
 The following Go code demonstrates how to use transactions with SQLite to ensure that multiple database operations are executed atomically.
 
 ```go
-package main
-
-import (
-	"database/sql"
-	"fmt"
-	"log"
-	_ "github.com/mattn/go-sqlite3"
-)
-
 func writeWithTransaction(db *sql.DB, data string) {
 	// Start a new transaction
 	tx, err := db.Begin() 
