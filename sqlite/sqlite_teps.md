@@ -116,4 +116,29 @@ func writeWithTransaction(db *sql.DB, data string) {
 	}
 }
 ```
+## manipulate more than one database at a time
+If you have two databases, db1.sqlite and db2.sqlite, you can attach db2.sqlite to db1.sqlite and then run a query like this:
+```sql
+ATTACH DATABASE 'db2.sqlite' AS db2;
+SELECT * FROM users
+JOIN db2.orders ON users.id = orders.user_id;
+```
+In this query, the users table is from the default database (db1.sqlite), and the orders table is from the attached db2.sqlite. This allows you to join data across two separate databases with a single query.
 
+## Create an In-Memory Database 
+SQLite has the ability to create fully in-memory databases
+in bash:
+Open an In-Memory Database
+```bash 
+sqlite3 :memory:
+```
+in Go:
+```go
+db, err := sql.Open("sqlite3", ":memory:")
+if err != nil {
+    log.Fatal(err)
+}
+defer db.Close()
+```
+## Virtual tables
+Virtual tables in SQLite allow you to interact with external data sources (like files or APIs) as if they were regular tables. They are not stored on disk but are managed by custom modules (e.g., full-text search or spatial indexing). Virtual tables provide flexibility and extend SQLite’s capabilities beyond its native functionality.
