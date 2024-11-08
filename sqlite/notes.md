@@ -5,6 +5,11 @@ embedded systems running limited operating systems.
 - SQLite has the ability to create fully in-memory databases
 - SQLite
 depends on filesystem permissions to control access to the raw database file.
+### Column Qualification
+ When filtering or selecting, refer to column names in this format:
+```sql
+[[database_name.]table_name.]column_name
+```
 # Not the Best Choice in 
 
 - High Transaction Rates
@@ -26,4 +31,7 @@ These files help manage efficient reads and writes in WAL mode and are deleted a
 ### tool for analysing and getting some info
 ```bash
 sqlite-analyzer mydatabase.db | grep -E "table|index|page"
+```
+```url
+https://www.geeksforgeeks.org/introduction-of-relational-algebra-in-dbms/
 ```
