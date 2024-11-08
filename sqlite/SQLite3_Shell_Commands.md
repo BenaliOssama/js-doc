@@ -11,11 +11,9 @@ abc|xyz
 sqlite> .headers on
 sqlite> .mode column
 sqlite> SELECT 'abc' AS start, 'xyz' AS end;
-start
-end
+start      end
 ---------- ----------
-abc
-xyz
+abc         xyz
 sqlite>
 ```
 
