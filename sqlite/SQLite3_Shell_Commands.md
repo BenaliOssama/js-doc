@@ -2,6 +2,24 @@
 
 Here is a list of some of the most useful shell-specific commands in `sqlite3`:
 
+Two of the more useful dot-commands (besides .help) are ***.headers*** and ***.mode***. Both of
+these control some aspect of the database output. Turning headers on and setting the
+output mode to column will produce a table that most people find easier to read:
+```sql
+sqlite> SELECT 'abc' AS start, 'xyz' AS end;
+abc|xyz
+sqlite> .headers on
+sqlite> .mode column
+sqlite> SELECT 'abc' AS start, 'xyz' AS end;
+start
+end
+---------- ----------
+abc
+xyz
+sqlite>
+```
+
+
 **`.read <file>`**  
 Reads and executes SQL commands from a file. This is useful for running batch scripts.
 ```sh
@@ -80,3 +98,4 @@ Reads and executes SQL commands from a file. This is useful for running batch sc
 
 **`.exit` or `.quit`**  
     Exits the SQLite shell.
+
