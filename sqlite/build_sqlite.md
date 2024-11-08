@@ -27,3 +27,10 @@ the database file. It can also be used to determine if it is appropriate to VACU
 (repack and defragment) the database or not. The SQLite website provides pre-
 compiled sqlite3_analyzer executables for most desktop platforms. The source
 for the analyzer is only available through the development source distribution.
+
+### mattn/go-sqlite3 
+SQLite Core: This is the main SQLite library, written in C, which performs all database operations. The Go SQLite driver (mattn/go-sqlite3) uses the SQLite core, often via the Amalgamation (sqlite3.c), embedding it within the driver to execute SQL commands directly in Go applications.
+
+**Step 1:** Go calls sql.Open("sqlite3", "data.db") → mattn/go-sqlite3 uses CGO to call sqlite3_open from sqlite3.c.
+**Step 2:** Go executes a query with db.Query("SELECT * FROM users") → mattn/go-sqlite3 uses CGO to call the appropriate C function in sqlite3.c for executing SQL statements.
+**Step 3:** SQLite Core processes the SQL, retrieves data, and CGO transfers this data back to Go in a structured format.

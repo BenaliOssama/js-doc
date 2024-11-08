@@ -2,6 +2,12 @@
 
 Here is a list of some of the most useful shell-specific commands in `sqlite3`:
 
+**`.read <file>`**  
+Reads and executes SQL commands from a file. This is useful for running batch scripts.
+```sh
+.read script.sql
+```
+
 **`.open <database>`**  
    Opens a SQLite database file. If the file doesn’t exist, it is created.
    ```sh
