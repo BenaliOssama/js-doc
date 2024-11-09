@@ -5,11 +5,15 @@ embedded systems running limited operating systems.
 - SQLite has the ability to create fully in-memory databases
 - SQLite
 depends on filesystem permissions to control access to the raw database file.
+- Integer have a range of −9,223,372,036,854,775,808 to +9,223,372,
+036,854,775,807, or roughly 19 digits
 ### Column Qualification
  When filtering or selecting, refer to column names in this format:
 ```sql
 [[database_name.]table_name.]column_name
 ```
+- You cannot use the equality operator (=) to test for NULLs. You must
+use the IS NULL operator.
 # Not the Best Choice in 
 
 - High Transaction Rates
@@ -35,3 +39,13 @@ sqlite-analyzer mydatabase.db | grep -E "table|index|page"
 ```url
 https://www.geeksforgeeks.org/introduction-of-relational-algebra-in-dbms/
 ```
+
+**Three-Valued Logic (3VL)** in SQL is a system where expressions can result in three possible values: **TRUE**, **FALSE**, or **NULL** (UNKNOWN). This third value, `NULL`, represents missing or undefined data. 
+
+In 3VL:
+
+- **TRUE AND UNKNOWN** → UNKNOWN
+- **FALSE OR UNKNOWN** → UNKNOWN
+- **NOT UNKNOWN** → UNKNOWN
+
+3VL helps SQL handle operations involving NULLs, ensuring that queries yield accurate results even with incomplete data.
