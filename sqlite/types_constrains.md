@@ -40,3 +40,21 @@ Explanation:
 - `UNIQUE` on `username` ensures no two users can have the same username.
 - `CHECK (age >= 18)` ensures all users are at least 18.
 - `UNIQUE` constraint on `email` (using `CONSTRAINT unique_email`) ensures each email is unique.
+
+
+When a UNIQUE or PRIMARY KEY constraint is applied to multiple columns
+
+```sql
+CREATE TABLE rooms(
+    room_number INTEGER NOT NULL ,
+    building_number INTEGER NOT NULL,
+    [...,]
+    PRIMARY KEY( room_number, building_number )
+);
+```
+
+SQLite supports a limited version of the ALTER TABLE command. Currently, there are
+only two operations supported by ALTER TABLE: add column and rename. The add col-
+umn variant allows you to add new columns to an existing table. It cannot remove
+them. New columns are always added to the end of the column list. Several other
+restrictions apply.

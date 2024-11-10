@@ -49,3 +49,11 @@ In 3VL:
 - **NOT UNKNOWN** → UNKNOWN
 
 3VL helps SQL handle operations involving NULLs, ensuring that queries yield accurate results even with incomplete data.
+you can create a view using the CREATE VIEW statement. A view is essentially a saved query that you can treat like a table for easier data access. Here’s the basic syntax:
+
+```sql
+CREATE VIEW view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
