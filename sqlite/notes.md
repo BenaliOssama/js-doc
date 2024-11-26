@@ -7,6 +7,13 @@ embedded systems running limited operating systems.
 depends on filesystem permissions to control access to the raw database file.
 - Integer have a range of −9,223,372,036,854,775,808 to +9,223,372,
 036,854,775,807, or roughly 19 digits
+- Bulk inserts can be sped up by wrapping large groups of INSERT com-
+mands inside a transaction.
+- If no WHERE condition is given, the UPDATE command will attempt to up-
+date the designated columns in every row of a table.
+- If no WHERE condition is given, the DELETE command will attempt to delete
+every row of a table.
+- The rows of an SQL table have no defined order.
 ### Column Qualification
  When filtering or selecting, refer to column names in this format:
 ```sql
